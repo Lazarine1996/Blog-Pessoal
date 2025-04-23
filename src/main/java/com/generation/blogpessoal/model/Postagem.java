@@ -37,6 +37,10 @@ public class Postagem {
 	@JsonIgnoreProperties("postagem") // estou configurando o looping infinito quando eu imprimir a postagem e tema
 	private Tema tema; // logo apos criar os geters e seters
 
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
+
 	// segundo passo, criar geters e seters
 	public Long getId() {
 		return id;
@@ -76,6 +80,14 @@ public class Postagem {
 
 	public void setTema(Tema tema) {
 		this.tema = tema;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }
